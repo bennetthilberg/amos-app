@@ -1,5 +1,13 @@
 import { StyleSheet } from 'react-native';
 
+const tabBarOptions = {
+  activeTintColor: '#673AB7',
+  inactiveTintColor: 'black',
+  style: {
+    backgroundColor: '#f5f5f5',
+  }
+};
+
 export const GlobalTheme = StyleSheet.create({
   colors: {
     primary: '#673AB7', // Purple 500
@@ -77,11 +85,7 @@ export const GlobalTheme = StyleSheet.create({
     },
     backgroundColor: '#673AB7',
   },
-  tabBar: {
-    activeTintColor: '#6200ee',
-    inactiveTintColor: 'gray',
-    style: {
-      backgroundColor: '#f5f5f5',
-    }
-  }
+  
 }); 
+
+export { tabBarOptions };
