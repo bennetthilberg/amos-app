@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {View, Text,TouchableOpacity} from 'react-native';
 import TestScreen from '../screens/TestScreen'; 
 import { atom,useAtom } from 'jotai';
+import { Button } from 'react-native-elements';
 
 const Stack = createStackNavigator();
 
@@ -16,13 +17,13 @@ function TestsScreen({ navigation }){
         <Text>These are the tests:</Text>
         {list.map((item) => {
             return(
-            <TouchableOpacity
+            <Button
             key={item}
             onPress={
                 () => navigation.navigate('Test', {testData: item})
             }>
                 <Text>{item}</Text>
-            </TouchableOpacity>
+            </Button>
             );
         })}
         </View>
