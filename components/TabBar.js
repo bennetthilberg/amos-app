@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import TestsScreen from '../screens/TestsScreen';
+import TestsScreen from '../screens/TestsList';
 import ResultsScreen from '../screens/ResultsScreen'; 
 import { GlobalTheme } from '../GlobalTheme';
 
