@@ -6,17 +6,11 @@ import GradientButton from '../components/GradientButton';
 
 export default function TestPreview({ navigation }) {
   const [currentTest, setCurrentTest] = useAtom(currentTestAtom);
-  
+  const currentTestName = `${currentTest.name}`;
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ fontSize: 24, marginBottom: 20 }}>{currentTest.name}</Text>
-      <GradientButton
-        title="Start Test"
-        onPress={() => {
-          setCurrentTest(currentTest);
-          navigation.navigate('TestInProgress');
-        }}
-      />
+      <Text>yo this is TestInProgress</Text>
+      <Text>currentTest says it is... {currentTestName}</Text>
     </View>
   );
 }

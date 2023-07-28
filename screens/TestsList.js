@@ -7,14 +7,16 @@ import { Button } from 'react-native-elements';
 import GradientButton from '../components/GradientButton';
 import * as tests from '../tests'; 
 import TestPreview from './TestPreview';
+import TestInProgress from './TestInProgress';
+import { currentTestAtom } from '../globalAtoms';
 
 
 const Stack = createStackNavigator();
 
-//const exampleList = atom(['foo', 'bar', 'foobar']);
 
 
 function TestsList({ navigation }){
+    const [currentTest, setCurrentTest] = useAtom(currentTestAtom);
     const testsArray = Object.values(tests);
 
     return(
@@ -26,7 +28,10 @@ function TestsList({ navigation }){
             key={testInList.id}
             title={testInList.name}
             onPress={
-                () => navigation.navigate('Test', {testData: testInList.name})
+                () =>{
+                  setCurrentTest(testInList);
+                  navigation.navigate('TestPreview');
+                }
             }>
                 <Text>{testInList.name}</Text>
             </GradientButton>
@@ -40,7 +45,9 @@ export default function TestNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="TestsList" component={TestsList} /> 
-      <Stack.Screen name="Test" component={TestPreview} /> 
+      <Stack.Screen name="TestPreview" component={TestPreview} /> 
+      <Stack.Screen name="TestInProgress" component={TestInProgress} /> 
+      
     </Stack.Navigator>
   );
 }
