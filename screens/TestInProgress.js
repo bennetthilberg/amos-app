@@ -10,7 +10,7 @@ export default function TestInProgress({ navigation }) {
   const [choicesMade, setChoicesMade] = useAtom(choicesMadeAtom);
 
   const question = currentTest.questions[testProgress];
-  const {questionText, answerTextA, answerTextB} = question;
+  const {questionText, buttonLayout, buttonText, answerTextA, answerTextB, buttonAColor, buttonBColor} = question;
 
   function handleChoice(choice){
     setChoicesMade([...choicesMade, {questionId: testProgress, choice}]);
@@ -21,18 +21,31 @@ export default function TestInProgress({ navigation }) {
     <View style={styles.container}>
       <Text style={styles.questionText}>{questionText}</Text>
       <View style={styles.buttonsContainer}>
-        <View style={styles.buttonContainer}>
-          <GradientButton
-            title={answerTextA}
-            onPress={() => handleChoice('A')}
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <GradientButton
-            title={answerTextB}
-            onPress={() => handleChoice('B')}
-          />
-        </View>
+        {buttonLayout === 'oneBig' ? (
+          <View style={styles.buttonContainer}>
+            <GradientButton
+              title={buttonText}
+              onPress={() => handleChoice()}
+            />
+          </View>
+        ) : (
+          <>
+            <View style={styles.buttonContainer}>
+              <GradientButton
+                title={answerTextA}
+                onPress={() => handleChoice('A')}
+                color={buttonAColor}
+              />
+            </View>
+            <View style={styles.buttonContainer}>
+              <GradientButton
+                title={answerTextB}
+                onPress={() => handleChoice('B')}
+                color={buttonBColor}
+              />
+            </View>
+          </>
+        )}
       </View>
     </View>
   );
