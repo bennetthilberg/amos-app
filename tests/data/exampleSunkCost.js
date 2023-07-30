@@ -10,8 +10,7 @@ export const exampleSunkCost = {
             answerTextB: 'No',
             answeredYet: false,
             response: null,
-            timeDisplayed: null,
-            timeAnswered: null
+            timeTaken: null
         },
         {
             questionText: 'You spend $10 for concert tickets, but it starts pouring rain. Would you still go?',
@@ -19,8 +18,7 @@ export const exampleSunkCost = {
             answerTextB: 'No',
             answeredYet: false,
             response: null,
-            timeDisplayed: null,
-            timeAnswered: null
+            timeTaken: null
         }
         // ...
     ],

@@ -27,8 +27,7 @@ export const raceIAT = {
             buttonBColor: '#008000',
             answeredYet: false,
             response: null,
-            timeDisplayed: null,
-            timeAnswered: null
+            timeTaken: null
         },
         {
             type: 'practice',
@@ -40,8 +39,7 @@ export const raceIAT = {
             buttonBColor: '#008000',
             answeredYet: false,
             response: null,
-            timeDisplayed: null,
-            timeAnswered: null
+            timeTaken: null
         },
         {
             type: 'instruction',
@@ -56,8 +54,7 @@ export const raceIAT = {
             answerTextB: 'Brown',
             answeredYet: false,
             response: null,
-            timeDisplayed: null,
-            timeAnswered: null
+            timeTaken: null
         },
         {
             type: 'question',
@@ -67,8 +64,7 @@ export const raceIAT = {
             answerTextB: 'Brown',
             answeredYet: false,
             response: null,
-            timeDisplayed: null,
-            timeAnswered: null
+            timeTaken: null
         },
         // ...
     ],

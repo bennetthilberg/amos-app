@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useAtom } from 'jotai';
 import { currentTestAtom, testProgressAtom, choicesMadeAtom } from '../globalAtoms';
@@ -8,13 +8,17 @@ export default function TestInProgress({ navigation }) {
   const [currentTest, setCurrentTest] = useAtom(currentTestAtom);
   const [testProgress, setTestProgress] = useAtom(testProgressAtom);
   const [choicesMade, setChoicesMade] = useAtom(choicesMadeAtom);
+  const [timeStarted, setTimeStarted] = useState(Date.now());
 
   const question = currentTest.questions[testProgress];
   const {questionText, buttonLayout, buttonText, answerTextA, answerTextB, buttonAColor, buttonBColor} = question;
 
   function handleChoice(choice){
-    setChoicesMade([...choicesMade, {questionId: testProgress, choice}]);
+    const timeTaken = Date.now() - timeStarted;
+    setChoicesMade([...choicesMade, {questionId: testProgress, choice, timeTaken}]);
+    console.log(timeTaken);
     setTestProgress(testProgress + 1);
+    setTimeStarted(Date.now());
   }
 
   return(
