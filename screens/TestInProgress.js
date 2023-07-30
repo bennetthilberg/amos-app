@@ -7,7 +7,6 @@ import GradientButton from '../components/GradientButton';
 export default function TestInProgress({ navigation }) {
   const [currentTest, setCurrentTest] = useAtom(currentTestAtom);
   const [testProgress, setTestProgress] = useAtom(testProgressAtom);
-  const [choicesMade, setChoicesMade] = useAtom(choicesMadeAtom);
   const [timeStarted, setTimeStarted] = useState(Date.now());
 
   const question = currentTest.questions[testProgress];
@@ -15,10 +14,14 @@ export default function TestInProgress({ navigation }) {
 
   function handleChoice(choice){
     const timeTaken = Date.now() - timeStarted;
-    setChoicesMade([...choicesMade, {questionId: testProgress, choice, timeTaken}]);
-    console.log(timeTaken);
+    // update the current question in the test
+    const updatedCurrentTest = {...currentTest};
+    updatedCurrentTest.questions[testProgress].response = choice;
+    updatedCurrentTest.questions[testProgress].timeTaken = timeTaken;
+    setCurrentTest(updatedCurrentTest);
     setTestProgress(testProgress + 1);
     setTimeStarted(Date.now());
+    console.log(currentTest);
   }
 
   return(
