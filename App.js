@@ -8,11 +8,21 @@ import { Provider } from 'jotai';
 import HomeScreen from './screens/HomeScreen';
 import { GlobalTheme } from './GlobalTheme';
 import TabBar from './components/TabBar';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { logStorage } from './debugUtils';
 
 
 const Tab = createBottomTabNavigator();
 
+// DEVTOOLS
 
+console.log('test');
+
+if (__DEV__) {
+  global.logStorage = logStorage;
+}
+
+// END DEVTOOLS
 
 
 export default function App() {

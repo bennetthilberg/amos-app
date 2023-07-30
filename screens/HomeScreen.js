@@ -5,14 +5,16 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import { ThemeProvider,Button } from 'react-native-elements';
 import { Provider } from 'jotai';
+import { logStorage } from '../debugUtils';
 
 export default function HomeScreen() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Home Screen</Text>
         <Button
-          title={'Press me!'}>
-  
+          title={'Press me!'}
+          >
+          
         </Button>
       </View>
     );

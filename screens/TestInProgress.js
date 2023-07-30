@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { useAtom } from 'jotai';
 import { currentTestAtom, testProgressAtom, choicesMadeAtom } from '../globalAtoms';
 import GradientButton from '../components/GradientButton';
@@ -18,20 +18,47 @@ export default function TestInProgress({ navigation }) {
   }
 
   return(
-    <View style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>
-      <Text style={{ fontSize: 24, marginBottom: 20 }}>{questionText}</Text>
-      <GradientButton
-        title={answerTextA}
-        onPress={() => handleChoice('A')}
-      />
-      <GradientButton
-        title={answerTextB}
-        onPress={() => handleChoice('B')}
-      />
+    <View style={styles.container}>
+      <Text style={styles.questionText}>{questionText}</Text>
+      <View style={styles.buttonsContainer}>
+        <View style={styles.buttonContainer}>
+          <GradientButton
+            title={answerTextA}
+            onPress={() => handleChoice('A')}
+          />
+        </View>
+        <View style={styles.buttonContainer}>
+          <GradientButton
+            title={answerTextB}
+            onPress={() => handleChoice('B')}
+          />
+        </View>
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 2
+  },
+  questionText: {
+    position: 'absolute',
+    top: 4,
+    fontSize: 20, 
+    marginBottom: 4,
+    marginLeft: 8,
+    marginRight: 8
+  },
+  buttonsContainer: {
+    position: 'absolute',
+    bottom: 0,
+    flexDirection: 'row',
+    width: '100%',
+  },
+  buttonContainer: {
+    flex: 1
+  }
+});
