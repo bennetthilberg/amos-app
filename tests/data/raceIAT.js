@@ -43,7 +43,9 @@ export const raceIAT = {
         },
         {
             type: 'instruction',
-            text: 'Next, you will categorize faces. Tap "Tan" for Black faces and "Brown" for White faces.',
+            questionText: 'Next, you will categorize faces. Tap "Tan" for Black faces and "Brown" for White faces.',
+            buttonLayout: 'oneBig',
+            buttonText: 'Next',
             image: './assets/diagrams/example_diagram2.png',
         },
         {
@@ -52,6 +54,8 @@ export const raceIAT = {
             item: './assets/faces/face1.png',
             answerTextA: 'Tan',
             answerTextB: 'Brown',
+            buttonAColor: '#ffe0bd',
+            buttonBColor: '#260701',
             answeredYet: false,
             response: null,
             timeTaken: null
@@ -62,6 +66,8 @@ export const raceIAT = {
             item: './assets/faces/face2.png',
             answerTextA: 'Tan',
             answerTextB: 'Brown',
+            buttonAColor: '#ffe0bd',
+            buttonBColor: '#260701',
             answeredYet: false,
             response: null,
             timeTaken: null
