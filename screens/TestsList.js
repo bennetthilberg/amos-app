@@ -8,7 +8,7 @@ import GradientButton from '../components/GradientButton';
 import * as tests from '../tests'; 
 import TestPreview from './TestPreview';
 import TestInProgress from './TestInProgress';
-import { currentTestAtom } from '../globalAtoms';
+import { currentTestAtom,testProgressAtom } from '../globalAtoms';
 
 
 const Stack = createStackNavigator();
@@ -17,6 +17,7 @@ const Stack = createStackNavigator();
 
 function TestsList({ navigation }){
     const [currentTest, setCurrentTest] = useAtom(currentTestAtom);
+    const [testProgress, setTestProgress] = useAtom(testProgressAtom);
     const testsArray = Object.values(tests);
 
     return(
@@ -29,7 +30,9 @@ function TestsList({ navigation }){
             title={testInList.name}
             onPress={
                 () =>{
+                  console.log('Setting currentTest and testProgress. testInList:', testInList);
                   setCurrentTest(testInList);
+                  setTestProgress({ block: 0, instruction: 0, question: 0 });
                   navigation.navigate('TestPreview');
                 }
             }>

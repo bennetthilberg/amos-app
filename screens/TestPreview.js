@@ -13,7 +13,7 @@ export default function TestPreview({ navigation }) {
 
   function handleStartTest() {
     setCurrentTest(currentTest);
-    setTestProgress(0);
+    setTestProgress({ block: 0, instruction: 0, question: 0 });
     setChoicesMade([]);
     navigation.navigate('TestInProgress');
   }
